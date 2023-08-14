@@ -35,7 +35,7 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jcRubro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtListaXRubro = new javax.swing.JTable();
+        jtListaPorRubro = new javax.swing.JTable();
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -49,7 +49,7 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
             }
         });
 
-        jtListaXRubro.setModel(new javax.swing.table.DefaultTableModel(
+        jtListaPorRubro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -60,7 +60,7 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtListaXRubro);
+        jScrollPane1.setViewportView(jtListaPorRubro);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,7 +100,7 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> jcRubro;
-    private javax.swing.JTable jtListaXRubro;
+    private javax.swing.JTable jtListaPorRubro;
     // End of variables declaration//GEN-END:variables
 
     private void cargaCombo() {
