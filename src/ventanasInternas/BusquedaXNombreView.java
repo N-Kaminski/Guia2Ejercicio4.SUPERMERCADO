@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guia2video.pkgsuper;
+package ventanasInternas;
 
+import guia2video.pkgsuper.MenuView;
+import guia2video.pkgsuper.Producto;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,13 +47,13 @@ public BusquedaXNombreView() {
         jLabel2 = new javax.swing.JLabel();
         jtNombreABuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtProductos = new javax.swing.JTable();
+        jtListaNombre = new javax.swing.JTable();
 
         setClosable(true);
 
         jlListadoPorNombre.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jlListadoPorNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlListadoPorNombre.setText("Listado por nombre");
+        jlListadoPorNombre.setText("Listado por Nombre");
 
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel2.setText("Escriba los primeros caracteres");
@@ -62,7 +64,7 @@ public BusquedaXNombreView() {
             }
         });
 
-        jtProductos.setModel(new javax.swing.table.DefaultTableModel(
+        jtListaNombre.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -73,14 +75,14 @@ public BusquedaXNombreView() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtProductos);
+        jScrollPane1.setViewportView(jtListaNombre);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(135, Short.MAX_VALUE)
+                .addContainerGap(133, Short.MAX_VALUE)
                 .addComponent(jlListadoPorNombre)
                 .addGap(129, 129, 129))
             .addGroup(layout.createSequentialGroup()
@@ -103,7 +105,7 @@ public BusquedaXNombreView() {
                     .addComponent(jtNombreABuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 43, Short.MAX_VALUE))
+                .addGap(0, 56, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,8 +127,8 @@ public BusquedaXNombreView() {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jlListadoPorNombre;
+    private javax.swing.JTable jtListaNombre;
     private javax.swing.JTextField jtNombreABuscar;
-    private javax.swing.JTable jtProductos;
     // End of variables declaration//GEN-END:variables
 
     
@@ -136,12 +138,12 @@ public BusquedaXNombreView() {
         modelo.addColumn("Descripcion");
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
-        jtProductos.setModel(modelo);
+        jtListaNombre.setModel(modelo);
         
     }
 
     private void borrarFilas (){
-        int fila=jtProductos.getRowCount()-1;
+        int fila=jtListaNombre.getRowCount()-1;
         for (int f=fila; f>0;f-- ){        
             modelo.removeRow(f);
         }

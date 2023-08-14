@@ -5,6 +5,7 @@
  */
 package guia2video.pkgsuper;
 
+import ventanasInternas.*;
 import java.awt.Color;
 import java.util.*;
 
@@ -13,16 +14,16 @@ import java.util.*;
  * @author Nicolas Kaminski
  */
 public class MenuView extends javax.swing.JFrame {
-    
-    public static TreeSet <Producto> listaProductos = new TreeSet <>();
+
+    public static TreeSet<Producto> listaProductos = new TreeSet<>();
 
     /**
      * Creates new form MenuView
      */
     public MenuView() {
         initComponents();
-                this.setLocationRelativeTo(null);
-                cargarProductos();
+        this.setLocationRelativeTo(null);
+        cargarProductos();
     }
 
     /**
@@ -110,17 +111,18 @@ public class MenuView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
     private void jmConsultasPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmConsultasPrecioActionPerformed
         // TODO add your handling code here:
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        BusquedaXPrecioView bxp = new BusquedaXPrecioView();
+        bxp.setVisible(true);
+        jdEscritorio.add(bxp);
+        jdEscritorio.moveToFront(bxp);
     }//GEN-LAST:event_jmConsultasPrecioActionPerformed
 
     private void jmConsultasNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmConsultasNombreActionPerformed
         // TODO add your handling code here:
-        
         jdEscritorio.removeAll();
         jdEscritorio.repaint();
         BusquedaXNombreView bxn = new BusquedaXNombreView();
@@ -128,6 +130,16 @@ public class MenuView extends javax.swing.JFrame {
         jdEscritorio.add(bxn);
         jdEscritorio.moveToFront(bxn);
     }//GEN-LAST:event_jmConsultasNombreActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        BusquedaXRubroView bxr = new BusquedaXRubroView();
+        bxr.setVisible(true);
+        jdEscritorio.add(bxr);
+        jdEscritorio.moveToFront(bxr);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,13 +187,11 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JMenu jmConsultasRubro;
     // End of variables declaration//GEN-END:variables
 
-    
-    private void cargarProductos(){
-        
-        listaProductos.add(new Producto(10, 100, "Azucar", 23.6, Categoria.COMESTIBLE));
-        
+    private void cargarProductos() {
+
+        // listaProductos.add(new Producto(10, 100, "Azucar", 23.6, Categoria.COMESTIBLE));
     }
-    
-    
+
+   
     
 }
