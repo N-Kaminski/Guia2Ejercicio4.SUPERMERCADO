@@ -5,17 +5,30 @@
  */
 package ventanasInternas;
 
+import guia2video.pkgsuper.MenuView;
+import guia2video.pkgsuper.Producto;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alesio
  */
 public class BusquedaXPrecioView extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel() {
+
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+
     /**
      * Creates new form BusquedaXPrecioView
      */
     public BusquedaXPrecioView() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -58,6 +71,20 @@ public class BusquedaXPrecioView extends javax.swing.JInternalFrame {
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("y");
+
+        jtPrecioEInicial.setText("0");
+        jtPrecioEInicial.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtPrecioEInicialKeyReleased(evt);
+            }
+        });
+
+        jtPrecioEFinal.setText("0");
+        jtPrecioEFinal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtPrecioEFinalKeyReleased(evt);
+            }
+        });
 
         jtListaXPrecio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,6 +134,49 @@ public class BusquedaXPrecioView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
+    private void jtPrecioEInicialKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioEInicialKeyReleased
+        // TODO add your handling code here:
+        if (jtPrecioEInicial.getText().equals("") || jtPrecioEFinal.getText().equals("")) {
+        } else {
+            borrarFilas();
+            try {
+                double pi = Double.parseDouble(jtPrecioEInicial.getText());
+                double pf = Double.parseDouble(jtPrecioEFinal.getText());
+
+                for (Producto prod : MenuView.listaProductos) {
+
+                    if (prod.getPrecio() >= pi && prod.getPrecio() <= pf) {
+                        modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock()});
+                    }
+                }
+            } catch (NumberFormatException er) {
+                JOptionPane.showMessageDialog(this, "Ingrese numeros");
+            }
+        }
+    }//GEN-LAST:event_jtPrecioEInicialKeyReleased
+
+    private void jtPrecioEFinalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtPrecioEFinalKeyReleased
+        // TODO add your handling code here:
+        if (jtPrecioEInicial.getText().equals("") || jtPrecioEFinal.getText().equals("")) {
+        } else {
+            borrarFilas();
+            try {
+                double pi = Double.parseDouble(jtPrecioEInicial.getText());
+                double pf = Double.parseDouble(jtPrecioEFinal.getText());
+
+                for (Producto prod : MenuView.listaProductos) {
+
+                    if (prod.getPrecio() >= pi && prod.getPrecio() <= pf) {
+                        modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock()});
+                    }
+                }
+            } catch (NumberFormatException err) {
+                JOptionPane.showMessageDialog(this, "Ingrese numeros");
+            }
+        }
+    }//GEN-LAST:event_jtPrecioEFinalKeyReleased
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -118,4 +188,21 @@ public class BusquedaXPrecioView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtPrecioEFinal;
     private javax.swing.JTextField jtPrecioEInicial;
     // End of variables declaration//GEN-END:variables
+
+    private void armarCabecera() {
+
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        jtListaXPrecio.setModel(modelo);
+    }
+
+    private void borrarFilas() {
+        int fila = jtListaXPrecio.getRowCount() - 1;
+        for (int f = fila; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+
 }

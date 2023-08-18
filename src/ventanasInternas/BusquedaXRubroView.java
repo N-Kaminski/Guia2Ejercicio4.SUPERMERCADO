@@ -7,6 +7,7 @@ package ventanasInternas;
 
 import guia2video.pkgsuper.Categoria;
 import guia2video.pkgsuper.MenuView;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -19,7 +20,8 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
      */
     public BusquedaXRubroView() {
         initComponents();
-        cargaCombo();
+        jcRubro.setModel(new DefaultComboBoxModel<Categoria>(Categoria.values()));
+ 
     }
 
     /**
@@ -99,14 +101,9 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> jcRubro;
+    private javax.swing.JComboBox<Categoria> jcRubro;
     private javax.swing.JTable jtListaPorRubro;
     // End of variables declaration//GEN-END:variables
 
-    private void cargaCombo() {
-//        COMESTIBLE, LIMPIEZA, PERFUMERIA
-        jcRubro.addItem(Categoria.COMESTIBLE + "");
-        jcRubro.addItem(Categoria.LIMPIEZA + "");
-        jcRubro.addItem(Categoria.PERFUMERIA + "");
-    }
-}
+
+}  // llave

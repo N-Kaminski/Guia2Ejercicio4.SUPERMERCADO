@@ -189,7 +189,13 @@ public class MenuView extends javax.swing.JFrame {
 
     private void cargarProductos() {
 
-        // listaProductos.add(new Producto(10, 100, "Azucar", 23.6, Categoria.COMESTIBLE));
+        listaProductos.add(new Producto(10, "Azucar x 1kg", 180.5, 75, Categoria.COMESTIBLE));
+        listaProductos.add(new Producto(15, "Yerbar x 1kg", 250, 50, Categoria.COMESTIBLE));
+        listaProductos.add(new Producto(20, "Miel x 1kg", 355.33, 10, Categoria.COMESTIBLE));
+        listaProductos.add(new Producto(21, "Papel x 1kg", 355.33, 10, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(22, "Manopla x 1kg", 355.33, 10, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(23, "Lavandina x 1kg", 355.33, 10, Categoria.LIMPIEZA));
+    
     }
 
    

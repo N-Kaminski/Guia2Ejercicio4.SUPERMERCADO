@@ -18,10 +18,8 @@ public class BusquedaXNombreView extends javax.swing.JInternalFrame {
     private DefaultTableModel modelo = new DefaultTableModel() {
 
         public boolean isCellEditable(int f, int c) {
-        
-            return false;
+                    return false;
         }
-
     };
 
 
@@ -114,14 +112,23 @@ public BusquedaXNombreView() {
     private void jtNombreABuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreABuscarKeyReleased
         // TODO add your handling code here:
         borrarFilas();
-        for (Producto prod:MenuView.listaProductos){
-            if (prod.getDescripcion().startsWith(jtNombreABuscar.getText())){
+//        for (Producto prod:MenuView.listaProductos){
+//            if (prod.getDescripcion().startsWith(jtNombreABuscar.getText().toLowerCase())){
+//                modelo.addRow(new Object[ ] {prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock() });
+//            }
+//        }
+        
+        
+         for (Producto prod:MenuView.listaProductos){
+             String test = prod.getDescripcion().toLowerCase();
+           if (test.startsWith(jtNombreABuscar.getText().toLowerCase())){
                 modelo.addRow(new Object[ ] {prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock() });
             }
         }
         
     }//GEN-LAST:event_jtNombreABuscarKeyReleased
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;
@@ -144,7 +151,7 @@ public BusquedaXNombreView() {
 
     private void borrarFilas (){
         int fila=jtListaNombre.getRowCount()-1;
-        for (int f=fila; f>0;f-- ){        
+        for (int f=fila; f>=0;f-- ){        
             modelo.removeRow(f);
         }
     }
