@@ -192,9 +192,11 @@ public class MenuView extends javax.swing.JFrame {
         listaProductos.add(new Producto(10, "Azucar x 1kg", 180.5, 75, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(15, "Yerbar x 1kg", 250, 50, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(20, "Miel x 1kg", 355.33, 10, Categoria.COMESTIBLE));
-        listaProductos.add(new Producto(21, "Papel x 1kg", 355.33, 10, Categoria.LIMPIEZA));
-        listaProductos.add(new Producto(22, "Manopla x 1kg", 355.33, 10, Categoria.LIMPIEZA));
-        listaProductos.add(new Producto(23, "Lavandina x 1kg", 355.33, 10, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(105, "Papel x 30 mts", 1120, 4, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(112, "Detergente x 500 ml", 860, 19, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(115, "Lavandina x 1 Lt", 4.13, 100, Categoria.LIMPIEZA));
+        listaProductos.add(new Producto(04, "Shampoo x 250ml", 96.85, 24, Categoria.PERFUMERIA));
+        listaProductos.add(new Producto(03, "Algodon", 36.15, 1, Categoria.PERFUMERIA));
     
     }
 

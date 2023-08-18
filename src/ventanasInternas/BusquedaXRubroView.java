@@ -7,7 +7,9 @@ package ventanasInternas;
 
 import guia2video.pkgsuper.Categoria;
 import guia2video.pkgsuper.MenuView;
+import guia2video.pkgsuper.Producto;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -15,13 +17,21 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class BusquedaXRubroView extends javax.swing.JInternalFrame {
 
+    private DefaultTableModel modelo = new DefaultTableModel() {
+
+        public boolean isCellEditable(int f, int c) {
+            return false;
+        }
+    };
+
     /**
      * Creates new form BusquedaXRubroView
      */
     public BusquedaXRubroView() {
         initComponents();
-        jcRubro.setModel(new DefaultComboBoxModel<Categoria>(Categoria.values()));
- 
+        armarCabecera();
+        cargarRubro();
+
     }
 
     /**
@@ -94,6 +104,12 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
 
     private void jcRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcRubroActionPerformed
         // TODO add your handling code here:
+borrarFilas();
+        for(Producto prod :MenuView.listaProductos){
+            if(prod.getRubro().toString().equals (jcRubro.getSelectedItem().toString())){
+                modelo.addRow(new Object[ ]{prod.getCodigo(), prod.getDescripcion(),  prod.getPrecio(),  prod.getStock() });
+            }
+        }
     }//GEN-LAST:event_jcRubroActionPerformed
 
 
@@ -105,5 +121,24 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
     private javax.swing.JTable jtListaPorRubro;
     // End of variables declaration//GEN-END:variables
 
+    private void armarCabecera() {
+        modelo.addColumn("Código");
+        modelo.addColumn("Descripción");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        jtListaPorRubro.setModel(modelo);
+    }
 
+    private void borrarFilas() {
+        int filas = jtListaPorRubro.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            modelo.removeRow(f);
+        }
+    }
+
+    private void cargarRubro() {
+        for (Categoria cat : Categoria.values()) {
+            jcRubro.addItem(cat);
+        }
+    }
 }  // llave
