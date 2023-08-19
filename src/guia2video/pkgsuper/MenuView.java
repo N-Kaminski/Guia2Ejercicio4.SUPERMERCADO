@@ -61,6 +61,11 @@ public class MenuView extends javax.swing.JFrame {
         jmAdmin.setText("Administracion");
 
         jmAdminProductos.setText("Productos");
+        jmAdminProductos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAdminProductosActionPerformed(evt);
+            }
+        });
         jmAdmin.add(jmAdminProductos);
 
         jMenuBar1.add(jmAdmin);
@@ -140,6 +145,17 @@ public class MenuView extends javax.swing.JFrame {
         jdEscritorio.add(bxr);
         jdEscritorio.moveToFront(bxr);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jmAdminProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAdminProductosActionPerformed
+        // TODO add your handling code here:
+        jdEscritorio.removeAll();
+        jdEscritorio.repaint();
+        GestionProducto bxr = new GestionProducto();
+        bxr.setVisible(true);
+        jdEscritorio.add(bxr);
+        jdEscritorio.moveToFront(bxr);
+        
+    }//GEN-LAST:event_jmAdminProductosActionPerformed
 
     /**
      * @param args the command line arguments

@@ -104,10 +104,10 @@ public class BusquedaXRubroView extends javax.swing.JInternalFrame {
 
     private void jcRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcRubroActionPerformed
         // TODO add your handling code here:
-borrarFilas();
-        for(Producto prod :MenuView.listaProductos){
-            if(prod.getRubro().toString().equals (jcRubro.getSelectedItem().toString())){
-                modelo.addRow(new Object[ ]{prod.getCodigo(), prod.getDescripcion(),  prod.getPrecio(),  prod.getStock() });
+        borrarFilas();
+        for (Producto prod : MenuView.listaProductos) {
+            if (prod.getRubro().toString().equals(jcRubro.getSelectedItem().toString())) {
+                modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock()});
             }
         }
     }//GEN-LAST:event_jcRubroActionPerformed
